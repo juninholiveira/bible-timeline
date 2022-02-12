@@ -20,6 +20,8 @@ var centuryMarksSpacing = yearSize * 100
 var milleniumMarksHeight = 100
 var milleniumMarksWidth = 13
 var milleniumMarksSpacing = yearSize * 1000
+var numbersSpacing = 20
+var numbersAmount = 500
 
 //Marks
 drawLine(true, straigthLineHeight)
@@ -54,9 +56,55 @@ function drawLine(type, height, width, spacing)
     ctx.stroke();
 }
 
+//Timeline numbers DC
+for (let i = 0; i < numbersAmount; i++)
+{
+    //Milleniums
+    if(i % 1000 == 0)
+    {
+        ctx.fillText(i, i * yearSize, milleniumMarksHeight + numbersSpacing)
+        ctx.fillText(i, i * -yearSize, milleniumMarksHeight + numbersSpacing)
+    }
+    //Centuries
+    else if(i % 100 == 0)
+    {
+        ctx.fillText(i, i * yearSize, centuryMarksHeight + numbersSpacing)
+        ctx.fillText(i, i * -yearSize, centuryMarksHeight + numbersSpacing)
+    }
+    //Decades
+    else if(i % 10 == 0)
+    {
+        ctx.fillText(i, i * yearSize, decadesMarksHeight + numbersSpacing)
+        ctx.fillText(i, i * -yearSize, decadesMarksHeight + numbersSpacing)
+    }
+    //Years
+    else
+    {
+        ctx.fillText(i, i * yearSize, yearsMarksHeight + numbersSpacing)
+        ctx.fillText(i, i * -yearSize, yearsMarksHeight + numbersSpacing)
+    }
+}
 
-var hue = 0;
-function drawPerson(yPosition, birth, death, name){
+//Timeline numbers AC
+//for (let i = 0; i < 6000; i++)
+// {
+//     //Milleniums
+//     if(i % 1000 == 0)
+//         ctx.fillText(i, i * -yearSize, milleniumMarksHeight + numbersSpacing)
+//     //Centuries
+//     else if(i % 100 == 0)
+//         ctx.fillText(i, i * -yearSize, centuryMarksHeight + numbersSpacing)
+//     //Decades
+//     else if(i % 10 == 0)
+//         ctx.fillText(i, i * -yearSize, decadesMarksHeight + numbersSpacing)
+//     //Years
+//     else
+//         ctx.fillText(i, i * yearSize, yearsMarksHeight + numbersSpacing)
+// }
+
+function drawPerson(yPosition, birth, death, name)
+{
+    var hue = 0;
     ctx.save();
     ctx.fillStyle = "hsl("+hue+",50%,50%,0.3)";
     var life = death - birth
