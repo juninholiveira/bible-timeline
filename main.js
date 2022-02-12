@@ -5,9 +5,8 @@ canvasElement.height = rect.height;
 var canvas = new InfiniteCanvas(canvasElement);
 var ctx = canvas.getContext("2d");
 
-
 //Tmeline vars
-var yearSize = 100                                  //How many pixels between each year mark
+var yearSize = 100                                  //How many pixels between each year
 var straigthLineHeight = 3
 var yearsMarksHeight = 15
 var yearsMarksWidth = 2
@@ -29,7 +28,7 @@ drawLine(false, decadesMarksHeight, decadesMarksWidth, decadesMarksSpacing)
 drawLine(false, centuryMarksHeight, centuryMarksWidth, centuryMarksSpacing)
 drawLine(false, milleniumMarksHeight, milleniumMarksWidth, milleniumMarksSpacing)
 
-//Draw the timeline lines and markings
+//Draw the timeline and markings
 function drawLine(type, height, width, spacing)
 {
     ctx.lineWidth = height
